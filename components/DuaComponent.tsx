@@ -60,11 +60,11 @@ export default function DuaComponent() {
               Prophet (ﷺ) used to say after every compulsory prayer, The servant
               will ask his Lord for all of his religiously and worldly needs,
               because the treasure of all things is in the hands of Allah. Allah
-              says (interpretation of the meaning): "And there is not a thing
-              but that with Us are its depositories, and We do not send it down
-              except according to a known measure." (Sura Al-Hijr 15:21) No one
-              can withhold what Allah gives; And, no one can give what he
-              resists.
+              says (interpretation of the meaning): &quot;And there is not a
+              thing but that with Us are its depositories, and We do not send it
+              down except according to a known measure.&quot; (Sura Al-Hijr
+              15:21) No one can withhold what Allah gives; And, no one can give
+              what he resists.
             </p>
           </div>
 
@@ -92,9 +92,9 @@ export default function DuaComponent() {
             <div className="font-semibold text-gray-800">Transliteration:</div>
             <div className="text-gray-700 italic leading-relaxed">
               Laa ilaaha illallahu wahdahu laa sharika lahu, lahul-mulku wa
-              lahul-hamdu wa huwa 'alaa kulli shay'in qadir. Allaahumma laa
-              maani'a limaa a'taita wa laa mu'tia limaa mana'ta wa laa yanfa'u
-              dhal-jaddi minka al-jaddu
+              lahul-hamdu wa huwa &apos;alaa kulli shay&apos;in qadir.
+              Allaahumma laa maani&apos;a limaa a&apos;taita wa laa mu&apos;tia
+              limaa mana&apos;ta wa laa yanfa&apos;u dhal-jaddi minka al-jaddu
             </div>
           </div>
 
