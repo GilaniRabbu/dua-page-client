@@ -11,9 +11,9 @@ import {
   Clock,
 } from "lucide-react";
 
-export default function DuaComponent() {
+export default function DuaComponent({ id }: { id: string }) {
   const [searchTerm, setSearchTerm] = useState("");
-
+  console.log(id);
   return (
     <div className="w-full max-w-2xl p-6">
       {/* Search Bar */}

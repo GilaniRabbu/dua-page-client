@@ -1,69 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import { useGetCategoriesWithSubCategoriesQuery } from "@/redux/api/categoryApi";
 
-const categories = [
-  {
-    id: 1,
-    title: "Introduction to Dua",
-    subcategory: 11,
-    count: 15,
-    items: [
-      "What is Dua",
-      "Conditions for Dua to be successful",
-      "The Methode Of Dua",
-      "Before Dua",
-      "During Dua",
-      "Prerequisites of writing Dua and drinking it’s water",
-      "The correct way to perform Dua for a small child",
-    ],
-  },
-  {
-    id: 2,
-    title: "Benefits of Dua",
-    subcategory: 5,
-    count: 12,
-    items: [
-      "Dua brings peace",
-      "It connects us with Allah",
-      "It relieves distress",
-      "Increases faith",
-    ],
-  },
-  {
-    id: 3,
-    title: "When to Make Dua",
-    subcategory: 6,
-    count: 8,
-    items: ["Before sleeping", "After Salah", "In Sujood", "On Fridays"],
-  },
-  {
-    id: 4,
-    title: "When to Make Dua",
-    subcategory: 6,
-    count: 8,
-    items: ["Before sleeping", "After Salah", "In Sujood", "On Fridays"],
-  },
-];
+interface SubCategory {
+  subcat_id: number;
+  subcat_name_en: string;
+  subcat_name_bn: string;
+  no_of_dua: number;
+}
+
+interface Category {
+  id: number;
+  cat_id: number;
+  cat_name_en: string;
+  cat_name_bn: string;
+  no_of_dua: number;
+  no_of_subcat: number;
+  cat_icon: string;
+  subCategories: SubCategory[];
+}
 
 export default function Categories() {
-  const [activeId, setActiveId] = useState<number | null>(1);
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const { data, isLoading, isError } =
+    useGetCategoriesWithSubCategoriesQuery(undefined);
 
   const toggleAccordion = (id: number) => {
     setActiveId((prev) => (prev === id ? null : id));
   };
+
+  if (isLoading) return <p className="p-6">Loading categories...</p>;
+  if (isError)
+    return <p className="p-6 text-red-600">Failed to load categories.</p>;
+
+  const categories: Category[] = data?.data || [];
 
   return (
     <div className="w-full max-w-sm p-6">
       <h2 className="text-2xl mb-4 py-3">Dua Page</h2>
 
       <div className="rounded-xl shadow-md overflow-hidden">
-        {/* Header */}
         <div className="bg-green-500 text-white text-center py-3 text-lg font-semibold rounded-t-xl">
           Categories
         </div>
 
-        {/* Search */}
         <div className="p-4">
           <input
             type="text"
@@ -72,7 +53,6 @@ export default function Categories() {
           />
         </div>
 
-        {/* Accordion Categories */}
         {categories.map((cat) => (
           <div key={cat.id} className="px-4">
             <div
@@ -82,33 +62,34 @@ export default function Categories() {
               }`}
             >
               <div className="flex gap-3 items-start">
-                <img
-                  src="/window.svg"
+                {/* <img
+                  src={`/${cat.cat_icon || "default"}.svg`}
                   alt="category"
                   className="w-10 h-10 rounded-lg object-cover"
-                />
+                /> */}
                 <div>
                   <h3 className="font-semibold text-sm text-green-700">
-                    {cat.title}
+                    {cat.cat_name_en}
                   </h3>
                   <p className="text-gray-500 text-xs">
-                    Subcategory: {cat.subcategory} | {cat.count} Duas
+                    Total Subcategories: {cat.subCategories?.length || 0}
                   </p>
                 </div>
               </div>
+
+              <span className="text-xl text-gray-500">
+                {activeId === cat.id ? "−" : "+"}
+              </span>
             </div>
 
-            {/* Accordion Content */}
             {activeId === cat.id && (
               <div className="mt-3 mb-4 ml-14 space-y-2 text-sm text-gray-700">
-                {cat.items.map((item, index) => (
+                {cat.subCategories.map((sub) => (
                   <p
-                    key={index}
-                    className={`${
-                      index === 0 ? "text-green-600 font-semibold" : ""
-                    }`}
+                    key={sub.subcat_id}
+                    className="hover:text-green-600 transition-colors"
                   >
-                    {item}
+                    {sub.subcat_name_en}
                   </p>
                 ))}
               </div>
