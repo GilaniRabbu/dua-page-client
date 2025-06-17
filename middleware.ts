@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
 
   if (pathname === "/") {
     const url = request.nextUrl.clone();
-    url.pathname = "/dua-categories";
+    url.pathname = "/dua-categories/1";
     return NextResponse.redirect(url);
   }
 

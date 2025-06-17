@@ -10,10 +10,18 @@ import {
   Share2,
   Clock,
 } from "lucide-react";
+import { useGetSingleDuaQuery } from "@/redux/api/duaApi";
 
 export default function DuaComponent({ id }: { id: string }) {
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(id);
+  const { data, isLoading, isError } = useGetSingleDuaQuery(id);
+
+  const dua = data?.data;
+
+  if (isLoading) return <p className="p-6">Loading dua...</p>;
+  if (isError || !dua)
+    return <p className="p-6 text-red-600">Failed to load dua.</p>;
+
   return (
     <div className="w-full max-w-2xl p-6">
       {/* Search Bar */}
@@ -33,8 +41,7 @@ export default function DuaComponent({ id }: { id: string }) {
       {/* Small Card - Section */}
       <div className="bg-white rounded-lg border border-gray-200 p-4 mb-5">
         <div className="font-medium">
-          <span className="text-green-600">Section:</span> The servant is
-          dependent on his Lord
+          <span className="text-green-600">Section:</span> {dua.dua_name_en}
         </div>
       </div>
 
@@ -47,75 +54,68 @@ export default function DuaComponent({ id }: { id: string }) {
               <div className="w-4 h-4 border-2 border-white rounded"></div>
             </div>
             <h2 className="text-green-700 font-semibold text-lg">
-              2. Conditions for Dua to be successful
+              {dua.dua_name_en}
             </h2>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-6 space-y-6">
-          {/* English Text */}
-          <div className="text-gray-700 leading-relaxed">
-            <p>
-              Prophet (ﷺ) used to say after every compulsory prayer, The servant
-              will ask his Lord for all of his religiously and worldly needs,
-              because the treasure of all things is in the hands of Allah. Allah
-              says (interpretation of the meaning): &quot;And there is not a
-              thing but that with Us are its depositories, and We do not send it
-              down except according to a known measure.&quot; (Sura Al-Hijr
-              15:21) No one can withhold what Allah gives; And, no one can give
-              what he resists.
-            </p>
-          </div>
+          {/* English Top Explanation */}
+          {dua.top_en && (
+            <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {dua.top_en}
+            </div>
+          )}
 
           {/* Arabic Text */}
-          <div className="text-right py-6">
-            <div
-              className="text-2xl leading-loose text-gray-800 font-arabic"
-              dir="rtl"
-            >
-              لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ
-              الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ،
-              اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ وَلَا
+          {dua.dua_arabic && (
+            <div className="text-right py-6">
+              <div
+                className="text-2xl leading-loose text-gray-800 font-arabic"
+                dir="rtl"
+              >
+                {dua.dua_arabic}
+              </div>
             </div>
-            <div
-              className="text-2xl leading-loose text-gray-800 font-arabic mt-4"
-              dir="rtl"
-            >
-              مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ
-              الْجَدُّ
-            </div>
-          </div>
+          )}
 
           {/* Transliteration */}
-          <div className="space-y-2">
-            <div className="font-semibold text-gray-800">Transliteration:</div>
-            <div className="text-gray-700 italic leading-relaxed">
-              Laa ilaaha illallahu wahdahu laa sharika lahu, lahul-mulku wa
-              lahul-hamdu wa huwa &apos;alaa kulli shay&apos;in qadir.
-              Allaahumma laa maani&apos;a limaa a&apos;taita wa laa mu&apos;tia
-              limaa mana&apos;ta wa laa yanfa&apos;u dhal-jaddi minka al-jaddu
+          {dua.transliteration_en && (
+            <div className="space-y-2">
+              <div className="font-semibold text-gray-800">
+                Transliteration:
+              </div>
+              <div className="text-gray-700 italic leading-relaxed">
+                {dua.transliteration_en}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Translation */}
-          <div className="space-y-2">
-            <div className="font-semibold text-gray-800">Translation:</div>
-            <div className="text-gray-700 leading-relaxed">
-              There is none worthy of worship except Allah alone with no partner
-              or associate. He is the Dominion and to Him be all praise, and He
-              is able to do all things. O Allah, one can withhold what You have
-              given and none can give what You have withheld, and no wealth or
-              fortune can benefit anyone for from You comes all wealth and
-              fortune.
+          {dua.translation_en && (
+            <div className="space-y-2">
+              <div className="font-semibold text-gray-800">Translation:</div>
+              <div className="text-gray-700 leading-relaxed">
+                {dua.translation_en}
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Bottom Explanation */}
+          {dua.bottom_en && (
+            <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {dua.bottom_en}
+            </div>
+          )}
 
           {/* Reference */}
-          <div className="space-y-2">
-            <div className="font-semibold text-green-600">Reference:</div>
-            <div className="text-gray-700">Bukhari: 844</div>
-          </div>
+          {dua.refference_en && (
+            <div className="space-y-2">
+              <div className="font-semibold text-green-600">Reference:</div>
+              <div className="text-gray-700">{dua.refference_en}</div>
+            </div>
+          )}
         </div>
 
         {/* Action Bar */}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useGetCategoriesWithSubCategoriesQuery } from "@/redux/api/categoryApi";
+import Link from "next/link";
 
 interface SubCategory {
   subcat_id: number;
@@ -83,14 +84,15 @@ export default function Categories() {
             </div>
 
             {activeId === cat.id && (
-              <div className="mt-3 mb-4 ml-14 space-y-2 text-sm text-gray-700">
+              <div className="mt-3 mb-4 ml-14 flex flex-col space-y-2 text-sm text-gray-700">
                 {cat.subCategories.map((sub) => (
-                  <p
+                  <Link
+                    href={`/dua-categories/${sub.subcat_id}`}
                     key={sub.subcat_id}
                     className="hover:text-green-600 transition-colors"
                   >
-                    {sub.subcat_name_en}
-                  </p>
+                    - {sub.subcat_name_bn}
+                  </Link>
                 ))}
               </div>
             )}
