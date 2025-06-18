@@ -64,7 +64,7 @@ export default function ProfileDropdown() {
       >
         <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-300 group-hover:brightness-95 transition">
           <Image
-            src="/globe.svg"
+            src="/logo.jpg"
             alt="Settings"
             width={32}
             height={32}
