@@ -24,7 +24,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden md:fixed md:top-0 md:left-0 md:h-screen md:w-20 md:flex md:flex-col md:justify-between md:py-4 md:shadow md:bg-white">
+      <div className="hidden lg:fixed lg:top-0 lg:left-0 lg:h-screen lg:w-20 lg:flex lg:flex-col lg:justify-between lg:py-4 lg:shadow lg:bg-white">
         {/* Top Icon */}
         <button className="w-12 h-12 mx-auto rounded-xl text-xl flex items-center justify-center cursor-pointer transition-colors text-white bg-green-500 hover:bg-green-600">
           <Hand />
@@ -55,7 +55,7 @@ export default function Sidebar() {
       </div>
 
       {/* Mobile Bottom Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full shadow-t py-2 z-30 border-t border-gray-200 bg-white">
+      <div className="lg:hidden fixed bottom-0 left-0 w-full shadow-t py-2 z-30 border-t border-gray-200 bg-white">
         <div className="flex justify-around">
           {icons.map((item) => (
             <button

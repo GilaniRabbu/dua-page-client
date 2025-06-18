@@ -62,7 +62,7 @@ export default function ProfileDropdown() {
         className="flex items-center gap-2 cursor-pointer group"
         onClick={() => setOpen(!open)}
       >
-        <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-300 group-hover:brightness-95 transition">
+        <div className="w-8 h-8 rounded-full overflow-hidden transition border border-gray-300 group-hover:brightness-95">
           <Image
             src="/logo.jpg"
             alt="Settings"
@@ -71,30 +71,29 @@ export default function ProfileDropdown() {
             className="object-cover w-full h-full"
           />
         </div>
-        <ChevronDown className="w-4 h-4 text-gray-500 group-hover:text-gray-700 transition" />
+        <ChevronDown className="w-4 h-4 transition text-gray-500 group-hover:text-gray-700" />
       </div>
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-6.5 w-80 bg-white border border-gray-200 rounded-2xl shadow-xl animate-fade-in">
+        <div className="absolute right-0 mt-6.5 w-80 rounded-2xl shadow-xl animate-fade-in border border-gray-200 bg-white">
           <div className="p-6">
-            <h1 className="text-xl font-semibold text-center text-gray-800 mb-5">
+            <h1 className="text-xl font-semibold text-center mb-5 text-gray-800">
               Settings
             </h1>
             <div className="space-y-3">
               {settingsItems.map((item) => {
                 const Icon = item.icon;
                 const isSelected = selectedSetting === item.id;
-
                 return (
                   <div key={item.id} className="relative">
                     {/* Left Active Indicator */}
                     {isSelected && (
-                      <div className="absolute left-0 top-1.5 bottom-1.5 w-1 bg-green-500 rounded-r z-10" />
+                      <div className="absolute left-0 top-1.5 bottom-1.5 z-10 w-1 rounded-r bg-green-500" />
                     )}
                     <button
                       onClick={() => setSelectedSetting(item.id)}
-                      className={`w-full flex items-center gap-4 px-4 py-3 rounded-md transition-colors duration-150 text-sm font-medium
+                      className={`w-full flex items-center gap-4 text-sm font-medium px-4 py-3 rounded-md transition-colors duration-150
                         ${
                           isSelected
                             ? "bg-green-50 text-green-600"

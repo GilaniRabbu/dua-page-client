@@ -22,7 +22,7 @@ export default function DuaComponent({ id }: { id: string }) {
     return <p className="p-6 text-red-600">Failed to load dua.</p>;
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 mb-20 md:mb-0">
+    <div className="w-full max-w-3xl mx-auto p-4 mb-20 lg:mb-0">
       {/* Search */}
       <div className="relative mb-4 text-right">
         <input
@@ -51,14 +51,14 @@ export default function DuaComponent({ id }: { id: string }) {
             <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
               <div className="w-3 h-3 bg-white rounded-full"></div>
             </div>
-            <h3 className="text-green-700 font-semibold text-base md:text-lg">
+            <h3 className="text-green-700 font-semibold text-base lg:text-lg">
               {dua.dua_name_en}
             </h3>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 text-sm md:text-base">
+        <div className="p-6 space-y-6 text-sm lg:text-base">
           {/* Top Explanation */}
           {!!dua.top_en && (
             <p className="text-gray-700 whitespace-pre-line">{dua.top_en}</p>
@@ -105,7 +105,7 @@ export default function DuaComponent({ id }: { id: string }) {
         </div>
 
         {/* Action Bar */}
-        <div className="border-t border-gray-200 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="border-t border-gray-200 p-4 flex flex-col gap-4 items-start sm:flex-row sm:items-center sm:justify-between">
           {/* Audio Button */}
           <button className="w-12 h-12 bg-green-600 hover:bg-green-700 text-white rounded-full flex items-center justify-center">
             <Play size={20} fill="currentColor" />

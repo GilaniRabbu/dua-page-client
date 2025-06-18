@@ -53,7 +53,7 @@ export default function Categories() {
       {/* Hamburger Button - Mobile Only */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md shadow-lg focus:outline-none bg-green-500 text-white"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-md shadow-lg focus:outline-none bg-green-500 text-white"
       >
         {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -63,17 +63,17 @@ export default function Categories() {
         className={`
           fixed top-0 left-0 w-4/5 max-w-xs h-full z-40 shadow-lg bg-white transform transition-transform duration-300 ease-in-out
           ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
-          md:static md:translate-x-0 md:w-full md:max-w-sm md:h-auto md:shadow-none
+          lg:static lg:translate-x-0 lg:w-full lg:max-w-sm lg:h-auto lg:shadow-none
         `}
       >
-        <div className="w-full h-full px-4 py-6 overflow-y-auto md:max-w-sm">
-          <h2 className="text-lg font-bold mb-6 text-center md:text-left md:text-xl text-green-600">
+        <div className="w-full h-full px-4 py-6 overflow-y-auto lg:max-w-sm">
+          <h2 className="text-lg font-bold mb-6 text-center lg:text-left lg:text-xl text-green-600">
             Dua Page
           </h2>
 
           <div className="shadow rounded-lg overflow-hidden bg-white">
             {/* Header */}
-            <div className="text-center py-4 text-lg md:text-xl font-semibold bg-green-500 text-white">
+            <div className="text-center py-4 text-lg lg:text-xl font-semibold bg-green-500 text-white">
               Categories
             </div>
 
@@ -142,7 +142,7 @@ export default function Categories() {
       {/* Backdrop overlay on mobile when menu open */}
       {isMobileOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
           onClick={toggleSidebar}
         ></div>
       )}
