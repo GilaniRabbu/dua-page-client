@@ -54,54 +54,57 @@ export default function ProfileDropdown() {
 
   return (
     <div
-      className="hidden md:fixed top-4 right-4 inline-block text-left"
+      className="hidden md:fixed top-4 right-4 inline-block text-left z-50"
       ref={dropdownRef}
     >
-      {/* Trigger section */}
+      {/* Trigger button */}
       <div
-        className="flex items-center gap-2 cursor-pointer"
+        className="flex items-center gap-2 cursor-pointer group"
         onClick={() => setOpen(!open)}
       >
-        <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-300">
+        <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-300 group-hover:brightness-95 transition">
           <Image
-            src="/globe.svg" // You can replace this with user's profile img
-            alt="Profile"
+            src="/globe.svg"
+            alt="Settings"
             width={32}
             height={32}
             className="object-cover w-full h-full"
           />
         </div>
-        <ChevronDown className="w-4 h-4 text-gray-500" />
+        <ChevronDown className="w-4 h-4 text-gray-500 group-hover:text-gray-700 transition" />
       </div>
 
-      {/* Dropdown menu */}
+      {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-4 w-80 bg-white border border-gray-200 rounded-3xl shadow z-50">
+        <div className="absolute right-0 mt-4 w-80 bg-white border border-gray-200 rounded-2xl shadow-xl animate-fade-in">
           <div className="p-6">
-            <h1 className="text-2xl font-semibold text-center text-gray-900 mb-6">
+            <h1 className="text-xl font-semibold text-center text-gray-800 mb-5">
               Settings
             </h1>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {settingsItems.map((item) => {
                 const Icon = item.icon;
                 const isSelected = selectedSetting === item.id;
 
                 return (
                   <div key={item.id} className="relative">
+                    {/* Left Active Indicator */}
                     {isSelected && (
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-green-600 rounded-r-sm z-10" />
+                      <div className="absolute left-0 top-1.5 bottom-1.5 w-1 bg-green-500 rounded-r z-10" />
                     )}
                     <button
                       onClick={() => setSelectedSetting(item.id)}
-                      className={`w-full flex items-center gap-4 p-4 rounded-lg transition-colors ${
-                        isSelected
-                          ? "bg-green-50 text-green-600"
-                          : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                      }`}
+                      className={`w-full flex items-center gap-4 px-4 py-3 rounded-md transition-colors duration-150 text-sm font-medium
+                        ${
+                          isSelected
+                            ? "bg-green-50 text-green-600"
+                            : "bg-gray-50 text-gray-600 hover:bg-gray-100"
+                        }
+                      `}
                     >
-                      <Icon className="w-5 h-5" />
-                      <span className="font-medium">{item.label}</span>
+                      <Icon className="w-5 h-5 flex-shrink-0" />
+                      <span>{item.label}</span>
                     </button>
                   </div>
                 );
