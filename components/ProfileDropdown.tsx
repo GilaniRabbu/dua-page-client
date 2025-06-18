@@ -54,7 +54,7 @@ export default function ProfileDropdown() {
 
   return (
     <div
-      className="hidden 2xl:fixed 2xl:inline-block top-5 right-4 text-left z-50"
+      className="hidden xl:fixed xl:inline-block top-5 right-4 text-left z-50"
       ref={dropdownRef}
     >
       {/* Trigger button */}
