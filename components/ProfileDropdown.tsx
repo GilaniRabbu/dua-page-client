@@ -76,12 +76,11 @@ export default function ProfileDropdown() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-6 w-80 bg-white border border-gray-200 rounded-2xl shadow-xl animate-fade-in">
+        <div className="absolute right-0 mt-6.5 w-80 bg-white border border-gray-200 rounded-2xl shadow-xl animate-fade-in">
           <div className="p-6">
             <h1 className="text-xl font-semibold text-center text-gray-800 mb-5">
               Settings
             </h1>
-
             <div className="space-y-3">
               {settingsItems.map((item) => {
                 const Icon = item.icon;
