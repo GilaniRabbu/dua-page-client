@@ -10,7 +10,7 @@ export default function DuaLayout({
   return (
     <div>
       <Sidebar />
-      <div className="flex flex-col md:flex-row md:ml-24">
+      <div className="flex flex-col lg:flex-row lg:ml-24">
         <Categories />
         {children}
         <ProfileDropdown />
