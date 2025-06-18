@@ -76,7 +76,7 @@ export default function ProfileDropdown() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-5 w-80 bg-white border border-gray-200 rounded-2xl shadow-xl animate-fade-in">
+        <div className="absolute right-0 mt-9 w-80 bg-white border border-gray-200 rounded-2xl shadow-xl animate-fade-in">
           <div className="p-6">
             <h1 className="text-xl font-semibold text-center text-gray-800 mb-5">
               Settings
@@ -98,7 +98,7 @@ export default function ProfileDropdown() {
                       className={`w-full flex items-center gap-4 px-4 py-3 rounded-md transition-colors duration-150 text-sm font-medium
                         ${
                           isSelected
-                            ? "bg-blue-500 text-green-600"
+                            ? "bg-green-50 text-green-600"
                             : "bg-gray-50 text-gray-600 hover:bg-gray-100"
                         }
                       `}
