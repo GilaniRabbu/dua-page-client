@@ -30,7 +30,7 @@ export default function DuaComponent({ id }: { id: string }) {
           placeholder="Search by Dua Name"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="text-sm px-4 py-3 pr-12 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="text-sm px-4 py-3 pr-12 rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500"
         />
         <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
           <Search size={20} />
