@@ -1,4 +1,3 @@
-// redux/api/duaApi.ts
 import { baseApi } from "./baseApi";
 
 const duaApi = baseApi.injectEndpoints({
@@ -12,7 +11,7 @@ const duaApi = baseApi.injectEndpoints({
       providesTags: ["Dua"],
     }),
 
-    // Optionally: get a single dua by ID
+    // Get a single dua by ID
     getSingleDua: build.query({
       query: (duaId: string | number) => ({
         url: `/duas/${duaId}`,
