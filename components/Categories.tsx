@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useGetCategoriesWithSubCategoriesQuery } from "@/redux/api/categoryApi";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Loader from "@/components/shared/Loader";
 
 interface SubCategory {
   subcat_id: number;
@@ -38,7 +39,7 @@ export default function Categories() {
     setIsMobileOpen((prev) => !prev);
   };
 
-  if (isLoading) return <p className="p-6">Loading categories...</p>;
+  if (isLoading) return <Loader />;
   if (isError)
     return <p className="p-6 text-red-600">Failed to load categories.</p>;
 

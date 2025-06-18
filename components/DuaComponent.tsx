@@ -10,6 +10,7 @@ import {
   Clock,
 } from "lucide-react";
 import { useGetSingleDuaQuery } from "@/redux/api/duaApi";
+import Loader from "@/components/shared/Loader";
 
 export default function DuaComponent({ id }: { id: string }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,7 +18,7 @@ export default function DuaComponent({ id }: { id: string }) {
 
   const dua = data?.data;
 
-  if (isLoading) return <p className="p-6">Loading dua...</p>;
+  if (isLoading) return <Loader />;
   if (isError || !dua)
     return <p className="p-6 text-red-600">Failed to load dua.</p>;
 
