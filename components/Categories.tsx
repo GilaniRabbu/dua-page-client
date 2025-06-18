@@ -71,7 +71,7 @@ export default function Categories() {
             Dua Page
           </h2>
 
-          <div className="shadow rounded-lg overflow-hidden bg-white">
+          <div className="rounded-lg overflow-hidden border border-gray-200 bg-white">
             {/* Header */}
             <div className="text-center py-4 text-lg lg:text-xl font-semibold bg-green-500 text-white">
               Categories
