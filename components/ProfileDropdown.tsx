@@ -76,7 +76,7 @@ export default function ProfileDropdown() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-6.5 w-80 rounded-2xl shadow-xl animate-fade-in border border-gray-200 bg-white">
+        <div className="absolute right-0 mt-6.5 w-80 rounded-2xl shadow animate-fade-in border border-gray-200 bg-white">
           <div className="p-6">
             <h1 className="text-xl font-semibold text-center mb-5 text-gray-800">
               Settings

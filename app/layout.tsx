@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-[#F7F8FA]`}>
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>

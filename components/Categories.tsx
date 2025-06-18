@@ -130,7 +130,7 @@ export default function Categories() {
               ))}
 
               {filteredCategories.length === 0 && (
-                <p className="text-center py-4 text-gray-400 text-sm">
+                <p className="text-center py-4 text-sm text-gray-400">
                   No categories found.
                 </p>
               )}
@@ -142,7 +142,7 @@ export default function Categories() {
       {/* Backdrop overlay on mobile when menu open */}
       {isMobileOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          className="fixed inset-0 z-30 lg:hidden bg-black/50"
           onClick={toggleSidebar}
         ></div>
       )}
