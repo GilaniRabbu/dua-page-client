@@ -61,9 +61,9 @@ export default function Categories() {
       {/* Sidebar Wrapper */}
       <div
         className={`
-          fixed top-0 left-0 w-4/5 max-w-xs h-full z-40 shadow-lg transform transition-transform duration-300 ease-in-out
+          fixed top-0 left-0 w-4/5 max-w-xs h-full z-40 shadow-lg bg-white transform transition-transform duration-300 ease-in-out
           ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:static lg:translate-x-0 lg:w-full lg:max-w-sm lg:h-auto lg:shadow-none
+          lg:static lg:translate-x-0 lg:w-full lg:max-w-sm lg:h-auto lg:shadow-none lg:bg-transparent
         `}
       >
         <div className="w-full h-full px-4 py-6 overflow-y-auto lg:max-w-sm">
