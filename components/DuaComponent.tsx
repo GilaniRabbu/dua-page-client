@@ -22,7 +22,7 @@ export default function DuaComponent({ id }: { id: string }) {
     return <p className="p-6 text-red-600">Failed to load dua.</p>;
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 mb-20 lg:mb-0">
+    <div className="w-full lg:max-w-3xl mx-auto p-4 mb-20 lg:mb-0">
       {/* Search */}
       <div className="relative mb-4 text-right">
         <input

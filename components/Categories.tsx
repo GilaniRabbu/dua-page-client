@@ -53,7 +53,7 @@ export default function Categories() {
       {/* Hamburger Button - Mobile Only */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-md shadow-lg focus:outline-none bg-green-500 text-white"
+        className="lg:hidden cursor-pointer fixed top-4 left-4 z-50 p-2 rounded-md shadow-xs focus:outline-none bg-green-500 text-white"
       >
         {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
