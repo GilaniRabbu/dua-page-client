@@ -122,7 +122,7 @@ export default function Categories() {
                           onClick={() => setIsMobileOpen(false)} // Close on click mobile
                           className="transition-colors line-clamp-1 hover:text-green-600"
                         >
-                          ▸ {sub.subcat_name_bn}
+                          ▸ {sub.subcat_name_en}
                         </Link>
                       ))}
                     </div>
