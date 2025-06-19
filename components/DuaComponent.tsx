@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import {
   Search,
   Play,
@@ -47,12 +48,18 @@ export default function DuaComponent({ id }: { id: string }) {
       {/* Main Dua Card */}
       <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
         {/* Header */}
-        <div className="bg-green-50 border-b border-green-100 p-4">
+        <div className="p-4 border-b border-green-100 bg-green-50">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
+            <div className="w-8 h-8">
+              <Image
+                src="/icon.svg"
+                alt="Icon"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h3 className="text-green-700 font-semibold text-base lg:text-lg">
+            <h3 className="font-semibold text-base lg:text-lg text-green-700">
               {dua.dua_name_en}
             </h3>
           </div>
@@ -62,14 +69,14 @@ export default function DuaComponent({ id }: { id: string }) {
         <div className="p-6 space-y-6 text-sm lg:text-base">
           {/* Top Explanation */}
           {!!dua.top_en && (
-            <p className="text-gray-700 whitespace-pre-line">{dua.top_en}</p>
+            <p className="whitespace-pre-line text-gray-700">{dua.top_en}</p>
           )}
 
           {/* Arabic */}
           {!!dua.dua_arabic && (
             <div
               dir="rtl"
-              className="text-2xl font-arabic text-right text-gray-900 leading-loose"
+              className="text-2xl font-arabic text-right leading-loose text-gray-900"
             >
               {dua.dua_arabic}
             </div>
@@ -93,7 +100,7 @@ export default function DuaComponent({ id }: { id: string }) {
 
           {/* Bottom Explanation */}
           {!!dua.bottom_en && (
-            <p className="text-gray-700 whitespace-pre-line">{dua.bottom_en}</p>
+            <p className="whitespace-pre-line text-gray-700">{dua.bottom_en}</p>
           )}
 
           {/* Reference */}
@@ -106,9 +113,9 @@ export default function DuaComponent({ id }: { id: string }) {
         </div>
 
         {/* Action Bar */}
-        <div className="border-t border-gray-200 p-4 flex flex-col gap-4 items-start sm:flex-row sm:items-center sm:justify-between">
+        <div className="p-4 flex flex-col gap-4 items-start sm:flex-row sm:items-center sm:justify-between border-t border-gray-200">
           {/* Audio Button */}
-          <button className="w-12 h-12 bg-green-600 hover:bg-green-700 text-white rounded-full flex items-center justify-center">
+          <button className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-green-600 hover:bg-green-700">
             <Play size={20} fill="currentColor" />
           </button>
 
@@ -117,7 +124,7 @@ export default function DuaComponent({ id }: { id: string }) {
             {[Copy, Bookmark, Lightbulb, Share2, Clock].map((Icon, idx) => (
               <button
                 key={idx}
-                className="p-2 hover:text-gray-700 transition-colors"
+                className="p-2 transition-colors hover:text-gray-700"
               >
                 <Icon size={20} />
               </button>
